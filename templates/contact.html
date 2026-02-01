@@ -1,0 +1,259 @@
+{% extends "base.html" %}
+
+{% block title %}Contact | Manish Kudtarkar - Let's Connect{% endblock %}
+{% block description %}Get in touch with me for collaboration opportunities, project discussions, or just to say hello. I'm always excited to connect with fellow developers and tech enthusiasts.{% endblock %}
+
+{% block content %}
+<section class="section contact-hero">
+    <div class="container">
+        <div class="section-header">
+            <h1 class="section-title">Let's Connect</h1>
+            <p class="section-subtitle">
+                I'm always excited to discuss <strong>new opportunities</strong>, <strong>collaborate on projects</strong>, 
+                or simply have a conversation about technology and innovation. Drop me a message!
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="section contact-main">
+    <div class="container contact-layout">
+        <div class="contact-form-section">
+            <div class="form-header">
+                <h2>Send me a message</h2>
+                <p>Whether you have a project in mind, want to collaborate, or just want to say hello, I'd love to hear from you.</p>
+            </div>
+
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="flash success">
+                    {% for msg in messages %}
+                        <div class="flash-content">
+                            <span class="flash-icon">✅</span>
+                            <p>{{ msg }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            {% endwith %}
+
+            <form method="POST" class="contact-form" id="contactForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input id="name" name="name" type="text" required placeholder="Your full name" />
+                        <span class="form-icon">👤</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input id="email" name="email" type="email" required placeholder="your.email@example.com" />
+                        <span class="form-icon">✉️</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <select id="subject" name="subject">
+                        <option value="">Select a topic</option>
+                        <option value="collaboration">Collaboration Opportunity</option>
+                        <option value="job">Job Opportunity</option>
+                        <option value="project">Project Discussion</option>
+                        <option value="mentorship">Mentorship</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <span class="form-icon">📋</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" rows="6" required 
+                              placeholder="Tell me about your project, idea, or just say hello..."></textarea>
+                    <span class="form-icon">💬</span>
+                </div>
+
+                <button type="submit" class="btn primary large submit-btn">
+                    <span class="btn-icon">🚀</span>
+                    <span class="btn-text">Send Message</span>
+                    <span class="btn-loading" style="display: none;">
+                        <span class="spinner"></span>
+                        Sending...
+                    </span>
+                </button>
+            </form>
+        </div>
+
+        <div class="contact-info-section">
+            <div class="contact-card">
+                <div class="card-header">
+                    <h2>💬 Let's Talk</h2>
+                </div>
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <div class="method-icon">✉️</div>
+                        <div class="method-content">
+                            <h3>Email</h3>
+                            <p>manishkudtarkar467@gmail.com</p>
+                            <a href="mailto:manishkudtarkar467@gmail.com" class="method-link">Send Email</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="method-icon">📍</div>
+                        <div class="method-content">
+                            <h3>Location</h3>
+                            <p>India</p>
+                            <span class="method-note">Open to remote work</span>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="method-icon">⏰</div>
+                        <div class="method-content">
+                            <h3>Response Time</h3>
+                            <p>Usually within 24 hours</p>
+                            <span class="method-note">Monday - Friday</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <div class="card-header">
+                    <h2>🌐 Find Me Online</h2>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/ManishKudtarkar" class="social-link" target="_blank" rel="noopener">
+                        <span class="social-icon">📱</span>
+                        <div class="social-content">
+                            <h3>GitHub</h3>
+                            <p>Check out my code</p>
+                        </div>
+                        <span class="social-arrow">→</span>
+                    </a>
+                    
+                    <a href="https://www.linkedin.com/in/manish-kudtarkar" class="social-link" target="_blank" rel="noopener">
+                        <span class="social-icon">💼</span>
+                        <div class="social-content">
+                            <h3>LinkedIn</h3>
+                            <p>Professional network</p>
+                        </div>
+                        <span class="social-arrow">→</span>
+                    </a>
+                </div>
+            </div>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <div class="card-header">
+                    <h2>🎯 I'm Open To</h2>
+                </div>
+                <ul class="opportunities-list">
+                    <li>
+                        <span class="opp-icon">💼</span>
+                        <div class="opp-content">
+                            <strong>Internship Opportunities</strong>
+                            <p>Backend development, data analysis roles</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="opp-icon">🤝</span>
+                        <div class="opp-content">
+                            <strong>Freelance Projects</strong>
+                            <p>Web development, automation, data projects</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="opp-icon">🚀</span>
+                        <div class="opp-content">
+                            <strong>Collaborations</strong>
+                            <p>Open source contributions, hackathons</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="opp-icon">🎓</span>
+                        <div class="opp-content">
+                            <strong>Mentorship</strong>
+                            <p>Learning from experienced developers</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+// Enhanced form handling
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    const submitBtn = this.querySelector('.submit-btn');
+    const btnText = submitBtn.querySelector('.btn-text');
+    const btnLoading = submitBtn.querySelector('.btn-loading');
+    
+    // Show loading state
+    btnText.style.display = 'none';
+    btnLoading.style.display = 'flex';
+    submitBtn.disabled = true;
+    
+    // Note: In a real implementation, you might want to handle this with AJAX
+    // For now, we'll let the form submit normally and the loading state will show briefly
+});
+
+// Form validation enhancements
+const inputs = document.querySelectorAll('input, textarea, select');
+inputs.forEach(input => {
+    input.addEventListener('blur', validateField);
+    input.addEventListener('input', clearErrors);
+});
+
+function validateField(e) {
+    const field = e.target;
+    const value = field.value.trim();
+    
+    // Remove existing error styling
+    field.classList.remove('error');
+    
+    // Basic validation
+    if (field.required && !value) {
+        showFieldError(field, 'This field is required');
+        return false;
+    }
+    
+    if (field.type === 'email' && value) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(value)) {
+            showFieldError(field, 'Please enter a valid email address');
+            return false;
+        }
+    }
+    
+    return true;
+}
+
+function showFieldError(field, message) {
+    field.classList.add('error');
+    
+    // Remove existing error message
+    const existingError = field.parentNode.querySelector('.field-error');
+    if (existingError) {
+        existingError.remove();
+    }
+    
+    // Add new error message
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'field-error';
+    errorDiv.textContent = message;
+    field.parentNode.appendChild(errorDiv);
+}
+
+function clearErrors(e) {
+    const field = e.target;
+    field.classList.remove('error');
+    const errorMsg = field.parentNode.querySelector('.field-error');
+    if (errorMsg) {
+        errorMsg.remove();
+    }
+}
+</script>
+{% endblock %}

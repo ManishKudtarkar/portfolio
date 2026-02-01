@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+
+{% block title %}About | Manish Kudtarkar - Big Data Analytics Student{% endblock %}
+{% block description %}Learn more about Manish Kudtarkar's journey in Computer Science, focusing on Big Data, AI/ML, and Web Development.{% endblock %}
+
+{% block content %}
+<section class="section about-hero">
+    <div class="container">
+        <div class="about-header">
+            <div class="about-intro">
+                <h1 class="section-title">About Me</h1>
+                <p class="about-tagline">Building the future, one line at a time.</p>
+            </div>
+            <div class="about-image">
+                <div class="profile-placeholder">
+                    <span class="profile-emoji">👨‍💻</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container about-layout">
+        <div class="about-content">
+            <div class="about-story">
+                <h2>My Journey</h2>
+                <p>
+                    I'm a <strong>B.Tech Computer Science Engineering</strong> student specializing in <strong>Big Data Analytics</strong> 
+                    at <strong>Parul University</strong>. My passion lies in exploring the vast potential of data and building 
+                    intelligent systems that can solve real-world problems.
+                </p>
+                <p>
+                    My focus areas include <strong>Big Data</strong>, <strong>Web Development</strong>, and <strong>AI/Machine Learning</strong>. 
+                    I enjoy working with technologies like Python, Hadoop, and modern web frameworks to create robust applications 
+                    and analyze complex datasets. I believe in continuous learning and applying my skills to build meaningful projects.
+                </p>
+                <p>
+                    Beyond academics, I am always exploring new tools and frameworks to stay ahead in the rapidly evolving tech landscape.
+                    I am driven by the motto: <em>"Building the future, one line at a time."</em>
+                </p>
+            </div>
+
+            <div class="about-highlights">
+                <h2>What I'm Up To</h2>
+                <div class="highlight-grid">
+                    <div class="highlight-item">
+                        <div class="highlight-icon">🎓</div>
+                        <h3>Currently Learning</h3>
+                        <p>Advanced machine learning algorithms, cloud architecture with AWS, and modern DevOps practices</p>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-icon">🚀</div>
+                        <h3>Working On</h3>
+                        <p>A smart learning platform with adaptive quizzes and an e-commerce analytics dashboard</p>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-icon">🎯</div>
+                        <h3>Goals for 2025</h3>
+                        <p>Contribute to open source projects, complete AWS certification, and build a SaaS product</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-sidebar">
+            <div class="about-card">
+                <h2>💻 Technical Skills</h2>
+                {% for category, skills_list in skills.items() %}
+                <div class="skill-category">
+                    <h3>{{ category }}</h3>
+                    <div class="skill-tags">
+                        {% for skill in skills_list %}
+                        <span class="skill-tag">{{ skill }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="about-card">
+                <h2>🌟 Interests</h2>
+                <ul>
+                    <li>Machine Learning & AI</li>
+                    <li>Backend Architecture</li>
+                    <li>Data Visualization</li>
+                    <li>Open Source Contribution</li>
+                    <li>Tech Community Building</li>
+                    <li>Event Hosting & Speaking</li>
+                </ul>
+            </div>
+
+            <div class="about-card">
+                <h2>📚 Education</h2>
+                <div class="education-item">
+                    <h3>B.Tech Computer Science</h3>
+                    <p class="education-school">Your University Name</p>
+                    <p class="education-year">2022 - 2026 (Expected)</p>
+                    <p class="education-details">Relevant Coursework: Data Structures, Algorithms, Database Systems, Machine Learning, Software Engineering</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2>Let's Connect!</h2>
+            <p>I'm always excited to discuss technology, collaborate on projects, or just have a good conversation about the future of tech.</p>
+            <div class="cta-actions">
+                <a href="{{ url_for('contact') }}" class="btn primary large">
+                    <span class="btn-icon">💬</span>
+                    <span>Get In Touch</span>
+                </a>
+                <a href="https://github.com/yourusername" class="btn secondary large" target="_blank" rel="noopener">
+                    <span class="btn-icon">📱</span>
+                    <span>View GitHub</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

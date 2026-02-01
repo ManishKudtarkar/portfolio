@@ -1,0 +1,231 @@
+{% extends "base.html" %}
+
+{% block title %}Home | Manish Kudtarkar - Portfolio{% endblock %}
+
+{% block content %}
+<!-- Animated background particles -->
+<div class="particles-container" id="particles"></div>
+
+<section class="hero">
+    <div class="container hero-content">
+        <div class="hero-main">
+            <div class="hero-greeting">
+                <span class="wave">👋</span>
+                <p class="hero-label">Hello, I'm</p>
+            </div>
+            <h1 class="hero-name">
+                <span class="name-part">Manish</span>
+                <span class="name-part accent-name">Kudtarkar</span>
+            </h1>
+            <div class="hero-roles">
+                <h2 class="typing-text" id="typingText">Big Data Analytics Student</h2>
+            </div>
+            <p class="hero-text">
+                I am a <strong>B.Tech CSE student</strong> specializing in <strong>Big Data Analytics</strong> at Parul University. 
+                Focusing on building intelligent solutions with Python, AI/ML, and Web Technologies.
+                <em>"Building the future, one line at a time."</em>
+            </p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">15+</span>
+                    <span class="stat-label">Projects</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">3+</span>
+                    <span class="stat-label">Years Learning</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">∞</span>
+                    <span class="stat-label">Curiosity</span>
+                </div>
+            </div>
+            <div class="hero-actions">
+                <a href="{{ url_for('projects') }}" class="btn primary">
+                    <span class="btn-icon">🚀</span>
+                    <span>Explore Projects</span>
+                </a>
+                <a href="{{ url_for('contact') }}" class="btn secondary">
+                    <span class="btn-icon">💬</span>
+                    <span>Let's Talk</span>
+                </a>
+                <a href="#skills" class="btn tertiary scroll-link">
+                    <span class="btn-icon">⬇️</span>
+                    <span>Learn More</span>
+                </a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-card floating">
+                <div class="card-header">
+                    <h3>💻 Tech Arsenal</h3>
+                    <div class="status-indicator">
+                        <span class="status-dot"></span>
+                        <span>Always Learning</span>
+                    </div>
+                </div>
+                <div class="tech-grid">
+                    <div class="tech-category">
+                        <h4>Backend</h4>
+                        <div class="tech-tags">
+                            <span class="tech-tag python">Python</span>
+                            <span class="tech-tag">Flask</span>
+                            <span class="tech-tag">FastAPI</span>
+                        </div>
+                    </div>
+                    <div class="tech-category">
+                        <h4>Data</h4>
+                        <div class="tech-tags">
+                            <span class="tech-tag">SQL</span>
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">NumPy</span>
+                        </div>
+                    </div>
+                    <div class="tech-category">
+                        <h4>Frontend</h4>
+                        <div class="tech-tags">
+                            <span class="tech-tag">HTML/CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">React</span>
+                        </div>
+                    </div>
+                    <div class="tech-category">
+                        <h4>Tools</h4>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Git</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Linux</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section class="section skills-section" id="skills">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">What I Do Best</h2>
+            <p class="section-subtitle">
+                Combining technical skills with creative problem-solving to build impactful solutions
+            </p>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-card" data-skill="backend">
+                <div class="skill-icon">🔧</div>
+                <h3>Backend Development</h3>
+                <p>Building robust APIs and server-side applications with Python, Flask, and database integration.</p>
+                <div class="skill-progress">
+                    <div class="progress-bar" data-progress="85"></div>
+                </div>
+            </div>
+            <div class="skill-card" data-skill="data">
+                <div class="skill-icon">📊</div>
+                <h3>Data Analysis</h3>
+                <p>Extracting insights from complex datasets using Python, SQL, and statistical analysis techniques.</p>
+                <div class="skill-progress">
+                    <div class="progress-bar" data-progress="80"></div>
+                </div>
+            </div>
+            <div class="skill-card" data-skill="automation">
+                <div class="skill-icon">⚡</div>
+                <h3>Automation</h3>
+                <p>Creating efficient workflows and automated solutions to streamline processes and boost productivity.</p>
+                <div class="skill-progress">
+                    <div class="progress-bar" data-progress="75"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Projects -->
+<section class="section projects-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">
+                A showcase of my recent work in web development, data analysis, and automation
+            </p>
+        </div>
+        <div class="projects-grid">
+            {% for project in projects %}
+            <article class="project-card" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 100 }}">
+                <div class="project-image">
+                    <div class="project-placeholder">
+                        {% if 'Python' in project.tech %}
+                            🐍
+                        {% elif 'JavaScript' in project.tech %}
+                            🟨
+                        {% elif 'Cisco' in project.tech %}
+                            🌐
+                        {% else %}
+                            💻
+                        {% endif %}
+                    </div>
+                    <div class="project-overlay">
+                        <div class="project-links">
+                            {% if project.link and project.link != "#" %}
+                                <a href="{{ project.link }}" class="project-link" target="_blank" rel="noopener">
+                                    <span>🔗</span>
+                                </a>
+                            {% endif %}
+                            <a href="{{ url_for('projects') }}" class="project-link">
+                                <span>📖</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3>{{ project.title }}</h3>
+                    <p>{{ project.description }}</p>
+                    <div class="project-tech">
+                        {% for tech in project.tech %}
+                            <span class="tech-badge">{{ tech }}</span>
+                        {% endfor %}
+                    </div>
+                    <div class="project-footer">
+                        {% if project.link and project.link != "#" %}
+                            <a href="{{ project.link }}" class="project-cta" target="_blank" rel="noopener">
+                                View Project <span class="arrow">→</span>
+                            </a>
+                        {% else %}
+                            <span class="project-cta disabled">
+                                Coming Soon <span class="arrow">⏳</span>
+                            </span>
+                        {% endif %}
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+        <div class="section-cta">
+            <a href="{{ url_for('projects') }}" class="btn primary large">
+                <span class="btn-icon">🚀</span>
+                <span>View All Projects</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="section cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2>Ready to Collaborate?</h2>
+            <p>I'm always excited to work on interesting projects and connect with fellow developers.</p>
+            <div class="cta-actions">
+                <a href="{{ url_for('contact') }}" class="btn primary large">
+                    <span class="btn-icon">💬</span>
+                    <span>Get In Touch</span>
+                </a>
+                <a href="mailto:your.email@example.com" class="btn secondary large">
+                    <span class="btn-icon">✉️</span>
+                    <span>Send Email</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
