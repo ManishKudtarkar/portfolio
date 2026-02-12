@@ -11,6 +11,7 @@ function initializeApp() {
     setupSkillBars();
     setupSmoothScrolling();
     setupIntersectionObserver();
+    setupCounterAnimation();
 }
 
 // Navigation
@@ -81,11 +82,11 @@ function setupTypingAnimation() {
     if (!typingElement) return;
 
     const roles = [
-        'Computer Science Student',
-        'Backend Developer',
-        'Data Analyst',
-        'Python Enthusiast',
-        'Problem Solver'
+        'Big Data Analytics Engineer',
+        'Python Backend Developer',
+        'Machine Learning Enthusiast',
+        'Data Pipeline Architect',
+        'Full-Stack Problem Solver'
     ];
 
     let roleIndex = 0;
@@ -212,7 +213,9 @@ function setupIntersectionObserver() {
     }, observerOptions);
 
     // Observe elements
-    const elementsToObserve = document.querySelectorAll('.skill-card, .project-card, .section-header');
+    const elementsToObserve = document.querySelectorAll(
+        '.skill-card, .project-card, .section-header, .highlight-item, .about-card, .contact-card, .tech-category-card'
+    );
     elementsToObserve.forEach(el => observer.observe(el));
 }
 
@@ -233,14 +236,37 @@ function debounce(func, wait) {
 const debouncedScroll = debounce(setupScrollEffects, 10);
 window.addEventListener('scroll', debouncedScroll);
 
-// Theme toggle (optional feature)
-function toggleTheme() {
-    document.body.classList.toggle('light-theme');
-    localStorage.setItem('theme', document.body.classList.contains('light-theme') ? 'light' : 'dark');
+// Animated Counter for Hero Stats
+function setupCounterAnimation() {
+    const counters = document.querySelectorAll('.stat-number[data-target]');
+    if (!counters.length) return;
+
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counter = entry.target;
+                const target = parseInt(counter.getAttribute('data-target'));
+                const duration = 2000;
+                const startTime = performance.now();
+
+                function updateCounter(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    // Ease out cubic
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    const current = Math.round(eased * target);
+                    counter.textContent = current + '+';
+                    if (progress < 1) {
+                        requestAnimationFrame(updateCounter);
+                    }
+                }
+                requestAnimationFrame(updateCounter);
+                counterObserver.unobserve(counter);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    counters.forEach(counter => counterObserver.observe(counter));
 }
 
-// Load saved theme
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'light') {
-    document.body.classList.add('light-theme');
-}
+// Theme is fixed to professional light mode
