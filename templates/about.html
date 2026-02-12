@@ -91,12 +91,30 @@
             </div>
 
             <div class="about-card">
+                <h2>🏆 Certifications</h2>
+                <div class="certificates-grid">
+                    {% for cert in certificates %}
+                    <div class="certificate-item">
+                        <div class="cert-image-container">
+                            <img src="{{ url_for('static', filename=cert.image) }}" alt="{{ cert.title }}" class="cert-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text=Certificate';">
+                        </div>
+                        <div class="cert-details">
+                            <h3>{{ cert.title }}</h3>
+                            <p class="cert-issuer">{{ cert.issuer }}</p>
+                            <span class="cert-date">{{ cert.date }}</span>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="about-card">
                 <h2>📚 Education</h2>
                 <div class="education-item">
                     <h3>B.Tech Computer Science</h3>
-                    <p class="education-school">Your University Name</p>
-                    <p class="education-year">2022 - 2026 (Expected)</p>
-                    <p class="education-details">Relevant Coursework: Data Structures, Algorithms, Database Systems, Machine Learning, Software Engineering</p>
+                    <p class="education-school">Parul University</p>
+                    <p class="education-year">2022 - 2026</p>
+                    <p class="education-details">Major: Big Data Analytics | Minor: AI/ML</p>
                 </div>
             </div>
         </div>
@@ -113,7 +131,7 @@
                     <span class="btn-icon">💬</span>
                     <span>Get In Touch</span>
                 </a>
-                <a href="https://github.com/yourusername" class="btn secondary large" target="_blank" rel="noopener">
+                <a href="https://github.com/ManishKudtarkar" class="btn secondary large" target="_blank" rel="noopener">
                     <span class="btn-icon">📱</span>
                     <span>View GitHub</span>
                 </a>

@@ -44,13 +44,13 @@
                     <span class="btn-icon">🚀</span>
                     <span>Explore Projects</span>
                 </a>
-                <a href="{{ url_for('contact') }}" class="btn secondary">
+                <a href="{{ url_for('static', filename='resume.pdf') }}" class="btn secondary" target="_blank">
+                    <span class="btn-icon">📄</span>
+                    <span>Download CV</span>
+                </a>
+                <a href="{{ url_for('contact') }}" class="btn tertiary">
                     <span class="btn-icon">💬</span>
                     <span>Let's Talk</span>
-                </a>
-                <a href="#skills" class="btn tertiary scroll-link">
-                    <span class="btn-icon">⬇️</span>
-                    <span>Learn More</span>
                 </a>
             </div>
         </div>
@@ -60,40 +60,32 @@
                     <h3>💻 Tech Arsenal</h3>
                     <div class="status-indicator">
                         <span class="status-dot"></span>
-                        <span>Always Learning</span>
+                        <span>Open to Work</span>
                     </div>
                 </div>
                 <div class="tech-grid">
                     <div class="tech-category">
-                        <h4>Backend</h4>
+                        <h4>Big Data</h4>
                         <div class="tech-tags">
-                            <span class="tech-tag python">Python</span>
-                            <span class="tech-tag">Flask</span>
-                            <span class="tech-tag">FastAPI</span>
+                            <span class="tech-tag python">Hadoop</span>
+                            <span class="tech-tag">Spark</span>
+                            <span class="tech-tag">MapReduce</span>
                         </div>
                     </div>
                     <div class="tech-category">
-                        <h4>Data</h4>
+                        <h4>Data Science</h4>
                         <div class="tech-tags">
-                            <span class="tech-tag">SQL</span>
+                            <span class="tech-tag">Python</span>
                             <span class="tech-tag">Pandas</span>
                             <span class="tech-tag">NumPy</span>
                         </div>
                     </div>
                     <div class="tech-category">
-                        <h4>Frontend</h4>
+                        <h4>Development</h4>
                         <div class="tech-tags">
-                            <span class="tech-tag">HTML/CSS</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">React</span>
-                        </div>
-                    </div>
-                    <div class="tech-category">
-                        <h4>Tools</h4>
-                        <div class="tech-tags">
+                            <span class="tech-tag">Flask</span>
+                            <span class="tech-tag">SQL</span>
                             <span class="tech-tag">Git</span>
-                            <span class="tech-tag">Docker</span>
-                            <span class="tech-tag">Linux</span>
                         </div>
                     </div>
                 </div>
